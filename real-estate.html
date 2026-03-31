@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷荣辉 Adam Lei - 专业服务平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        .contact-bar {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .contact-bar p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 30px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .section-title {
+            font-size: 22px;
+            color: #0066cc;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0066cc;
+        }
+        .section-title-cn {
+            font-size: 20px;
+            color: #0066cc;
+            margin: 25px 0 15px;
+            font-weight: bold;
+        }
+        
+        /* Philosophy */
+        .philosophy-box {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #0066cc;
+        }
+        .philosophy-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .service-card h3 {
+            color: #0066cc;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .service-card .price {
+            color: #00aa00;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #0066cc;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        /* Package */
+        .package-card {
+            background: linear-gradient(135deg, #0066cc, #0099ff);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .package-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .package-card .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .package-card.premium {
+            background: linear-gradient(135deg, #ff6600, #ff9933);
+        }
+        .package-card.efficient {
+            background: linear-gradient(135deg, #00aa66, #00cc88);
+        }
+        
+        /* Contact */
+        .contact-section {
+            background: #f0f7ff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .contact-btn {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
+        .contact-btn:hover {
+            background: #0055aa;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .section-title {
+                font-size: 20px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>雷荣辉 Adam Lei</h1>
+            <p class="subtitle">多元执业资质 · 专业服务平台</p>
+            <p class="subtitle">Multi-Qualified Professional · Integrated Services Platform</p>
+            
+            <div class="contact-bar">
+                <p>📞 香港 HK: 852-55357390</p>
+                <p>📞 内地 Mainland: 13580346465</p>
+                <p>🎓 中山大学药学学士 · 药学工程双学位</p>
+                <p>💼 总药师 | 总监理工程师 | 总审计师 | 顾问律师 | 主任社工师</p>
+            </div>
+        </div>
+        
+        <!-- Philosophy -->
+        <div class="section">
+            <h2 class="section-title">⭐ 核心服务理念 Core Philosophy</h2>
+            <div class="philosophy-box">
+                <div class="philosophy-item">
+                    <strong>💡 简单说：专业多一点，风险少一点</strong><br>
+                    Simply Put: More Professionalism, Less Risk
+                </div>
+                <div class="philosophy-item">
+                    <strong>🤝 实在说：收费透明 · 服务到底 · 拒绝套路</strong><br>
+                    Honestly Put: Transparent Fees · Full Service · No Hidden Agendas
+                </div>
+                <div class="philosophy-item">
+                    <strong>🏆 自信说：房产·专利·财税 —— 全领域专家团队为您服务</strong><br>
+                    Confidently Put: Property · Patents · Tax — Expert Team at Your Service
+                </div>
+            </div>
+        </div>
+        
+        <!-- Real Estate -->
+        <div class="section">
+            <h2 class="section-title">🏠 中国宜元物产股份有限公司</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">天水围地产专家 · 全流程交易护航</p>
+            
+            <h3 class="section-title-cn">为什么选择我们？</h3>
+            <div class="service-card">
+                <p>🎯 <strong>区域专家</strong> — 深耕天水围，熟悉每个屋苑、每条街道</p>
+                <p>💰 <strong>透明收费</strong> — 佣金公开透明，无隐藏费用</p>
+                <p>📋 <strong>全流程支持</strong> — 从看房到交楼，全程专业陪同</p>
+                <p>⚖️ <strong>合规保障</strong> — 合同审查、风险评估，交易零风险</p>
+            </div>
+            
+            <h3 class="section-title-cn">服务项目与收费</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>服务类型</th>
+                        <th>服务内容</th>
+                        <th>收费标准</th>
+                    </tr>
+                    <tr>
+                        <td><strong>住宅租赁</strong></td>
+                        <td>整租/分租代理<br>租约审查<br>租客核实<br>交楼验收</td>
+                        <td class="price">1 个月租金</td>
+                    </tr>
+                    <tr>
+                        <td><strong>住宅买卖</strong></td>
+                        <td>物业估值<br>买卖盘配对<br>价格谈判<br>流程指导</td>
+                        <td class="price">成交价 1%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>功能地产</strong></td>
+                        <td>商铺/写字楼<br>工业物业<br>投资策划</td>
+                        <td class="price">面议</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3 class="section-title-cn">服务套餐</h3>
+            <div class="package-card">
+                <h4>A 标准服务 Standard Service</h4>
+                <p>物业配对 · 带看服务 · 价格谈判 · 临时合约签署</p>
+                <p class="price">租赁：1 个月租金 | 买卖：1% 佣金</p>
+            </div>
+            <div class="package-card premium">
+                <h4>B 尊享服务 Premium Service 💎</h4>
+                <p>标准服务全部内容 + 专业合同审查 + 全程交易支持 + 土地查册 + 风险评估报告</p>
+                <p class="price">HK$3,000</p>
+                <p style="font-size: 13px; opacity: 0.9;">适合：首次置业者、异地买家、追求安心交易的客户</p>
+            </div>
+            <div class="package-card efficient">
+                <h4>C 高效代理服务 Efficient Service ⚡</h4>
+                <p>客户自行办理查册/厘印/文件 + 我方提供全程交易指导</p>
+                <p class="price">FREE（买方/租方零费用）</p>
+                <p style="font-size: 13px; opacity: 0.9;">适合：有经验投资者、熟悉流程人士、预算敏感客户</p>
+            </div>
+        </div>
+        
+        <!-- IP & Tax -->
+        <div class="section">
+            <h2 class="section-title">🌐 SHE DATA HK LIMITED</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">全球知识产权 · 跨境财税专家</p>
+            
+            <h3 class="section-title-cn">服务覆盖区域</h3>
+            <div class="service-card" style="text-align: center;">
+                <p style="font-size: 16px;">🇨🇳 中国 · 🇭🇰 香港 · 🇬🇧 英国 · 🇺🇸 美国 · 🇪🇺 欧盟 · 🇦🇺 澳洲 · 🇯🇵 日本</p>
+                <p style="color: #0066cc; font-weight: bold; margin-top: 10px;">一站式服务：一次咨询，全球保护</p>
+            </div>
+            
+            <h3 class="section-title-cn">知识产权服务</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>服务类型</th>
+                        <th>服务内容</th>
+                    </tr>
+                    <tr>
+                        <td><strong>专利申请</strong></td>
+                        <td>发明/实用新型/外观设计<br>PCT 国际申请<br>保护期：20/10/15 年</td>
+                    </tr>
+                    <tr>
+                        <td><strong>商标注册</strong></td>
+                        <td>商标检索 · 注册申请 · 异议答辩<br>欧盟商标 · 马德里国际注册</td>
+                    </tr>
+                    <tr>
+                        <td><strong>知识产权布局</strong></td>
+                        <td>专利地图分析 · FTO 分析<br>竞争对手监控 · 许可转让</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3 class="section-title-cn">跨境财税筹划</h3>
+            <div class="service-card">
+                <p><strong>税务优化：</strong>跨境架构设计 · 转让定价筹划 · 税收协定应用</p>
+                <p><strong>合规节税：</strong>香港利得税 8.25% · 高新企业 15% · 研发费用加计扣除</p>
+                <p><strong>财税咨询：</strong>跨境投资税务 · CRS/FATCA 合规 · 常年财税顾问</p>
+            </div>
+            
+            <h3 class="section-title-cn">服务套餐</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>套餐</th>
+                        <th>服务内容</th>
+                        <th>费用</th>
+                    </tr>
+                    <tr>
+                        <td><strong>A 初创企业</strong></td>
+                        <td>香港公司注册<br>商标注册（1 类）<br>基础财税咨询<br>年度报税指导</td>
+                        <td class="price">HK$8,800 起</td>
+                    </tr>
+                    <tr>
+                        <td><strong>B 成长企业</strong></td>
+                        <td>A 套餐全部内容<br>专利申请（1 项）<br>商标注册（3 类）<br>跨境财税筹划方案<br>季度财税咨询</td>
+                        <td class="price">HK$28,800 起</td>
+                    </tr>
+                    <tr>
+                        <td><strong>C 企业定制</strong></td>
+                        <td>全球知识产权布局规划<br>多国专利申请（5+ 国家）<br>跨境税务架构设计<br>常年财税顾问（1 年）<br>7×24 小时优先支持</td>
+                        <td class="price">定制报价</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3 class="section-title-cn">常见问题 FAQ</h3>
+            <div class="service-card">
+                <p><strong>Q: 专利申请需要多长时间？</strong></p>
+                <p>A: 发明专利 2-3 年，实用新型 6-12 个月，外观设计 4-8 个月（因国家而异）</p>
+                <hr style="margin: 10px 0; border: none; border-top: 1px dashed #ddd;">
+                <p><strong>Q: 商标注册成功率如何？</strong></p>
+                <p>A: 经过专业检索后，成功率可达 85% 以上</p>
+                <hr style="margin: 10px 0; border: none; border-top: 1px dashed #ddd;">
+                <p><strong>Q: 跨境财税筹划合法吗？</strong></p>
+                <p>A: 完全合法！我们做的是税务优化 (Tax Optimization)，不是逃税 (Tax Evasion)</p>
+            </div>
+        </div>
+        
+        <!-- Contact -->
+        <div class="contact-section">
+            <h2 class="section-title" style="border: none;">📞 联系我们 Contact Us</h2>
+            <p style="font-size: 18px; margin-bottom: 20px;"><strong>雷荣辉 Adam Lei</strong></p>
+            <p style="font-size: 16px; margin: 10px 0;">📱 香港 HK: 852-55357390</p>
+            <p style="font-size: 16px; margin: 10px 0;">📱 内地 Mainland: 13580346465</p>
+            <p style="font-size: 16px; margin: 10px 0;">📍 服务区域：香港天水围 · 粤港澳大湾区 · 全球跨境业务</p>
+            <p style="font-size: 16px; margin: 10px 0;">🕐 办公时间：周一至周五 9:00-18:00 | 周六 10:00-16:00</p>
+            
+            <div style="margin-top: 25px;">
+                <a href="tel:85255357390" class="contact-btn">📞 致电香港 HK</a>
+                <a href="tel:13580346465" class="contact-btn">📞 致电内地 Mainland</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2026 雷荣辉 Adam Lei 专业服务平台</p>
+            <p>中国宜元物产股份有限公司 | SHE DATA HK LIMITED</p>
+            <p style="margin-top: 10px; opacity: 0.8;">专业多一点，坑就少一点</p>
+            <p style="opacity: 0.8;">More Professionalism, Less Risk</p>
+        </div>
+    </div>
+</body>
+</html>
