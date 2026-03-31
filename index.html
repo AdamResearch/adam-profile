@@ -3,104 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam Lei 雷荣辉 - 医药 IP 专家</title>
+    <title>雷荣辉 Adam Lei - 专业服务平台</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .header {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        .header h1 { font-size: 2.5em; color: #667eea; margin-bottom: 10px; font-weight: 700; }
-        .header .subtitle { font-size: 1.2em; color: #666; margin-bottom: 20px; }
-        .tagline {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        .contact-info { background: #f8f9ff; border-radius: 15px; padding: 20px; margin: 20px 0; }
-        .contact-item { display: flex; align-items: center; justify-content: center; margin: 10px 0; gap: 10px; }
-        .contact-item span { color: #555; font-weight: 500; }
-        .qualifications, .services, .why-me {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        .section-title { font-size: 1.8em; color: #667eea; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .qualification-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
-        .qual-card {
-            background: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-        }
-        .qual-card h3 { color: #667eea; margin-bottom: 8px; font-size: 1.1em; }
-        .qual-card p { color: #666; font-size: 0.9em; }
-        .service-list { list-style: none; }
-        .service-item { padding: 15px; margin: 10px 0; background: #f8f9ff; border-radius: 10px; border-left: 4px solid #764ba2; }
-        .service-item h4 { color: #764ba2; margin-bottom: 5px; }
-        .service-item p { color: #666; font-size: 0.95em; }
-        .philosophy {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-        .philosophy h2 { color: white; margin-bottom: 20px; }
-        .philosophy-blockquote {
-            background: rgba(255,255,255,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 600;
-            margin: 15px 0;
-        }
-        .cta {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin: 10px;
-            transition: transform 0.3s ease;
-        }
-        .cta-button:hover { transform: translateY(-2px); }
-        .cta-button.secondary { background: white; color: #667eea; border: 2px solid #667eea; }
-        .footer { text-align: center; color: white; margin-top: 30px; padding: 20px; font-size: 0.9em; opacity: 0.8; }
-        @media (max-width: 600px) {
-            .header h1 { font-size: 2em; }
-            .contact-item { flex-direction: column; gap: 5px; }
-            .qualification-grid { grid-template-columns: 1fr; }
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; }
+        .header { background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%); color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header .subtitle { font-size: 16px; opacity: 0.95; margin-bottom: 20px; }
+        .contact-bar { background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .contact-bar p { margin: 5px 0; font-size: 15px; }
+        .section { padding: 30px 20px; border-bottom: 1px solid #eee; }
+        .section-title { font-size: 22px; color: #0066cc; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #0066cc; }
+        .section-title-cn { font-size: 20px; color: #0066cc; margin: 25px 0 15px; font-weight: bold; }
+        .philosophy-box { background: #f0f7ff; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #0066cc; }
+        .philosophy-item { margin: 10px 0; padding: 10px; background: white; border-radius: 5px; }
+        .service-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 15px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .service-card h3 { color: #0066cc; font-size: 18px; margin-bottom: 10px; }
+        .service-card .price { color: #00aa00; font-weight: bold; font-size: 16px; margin: 10px 0; }
+        .table-container { overflow-x: auto; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #0066cc; color: white; font-weight: bold; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .package-card { background: linear-gradient(135deg, #0066cc, #0099ff); color: white; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .package-card h4 { font-size: 18px; margin-bottom: 10px; }
+        .package-card .price { font-size: 24px; font-weight: bold; margin: 10px 0; }
+        .package-card.premium { background: linear-gradient(135deg, #ff6600, #ff9933); }
+        .package-card.efficient { background: linear-gradient(135deg, #00aa66, #00cc88); }
+        .contact-section { background: #f0f7ff; padding: 30px 20px; text-align: center; }
+        .contact-btn { display: inline-block; background: #0066cc; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; margin: 10px; font-weight: bold; }
+        .contact-btn:hover { background: #0055aa; }
+        .footer { background: #333; color: white; text-align: center; padding: 20px; font-size: 13px; }
+        @media (max-width: 600px) { .header h1 { font-size: 24px; } .section-title { font-size: 20px; } th, td { padding: 8px; font-size: 13px; } }
     </style>
 </head>
 <body>
@@ -109,144 +44,102 @@
         <div class="header">
             <h1>雷荣辉 Adam Lei</h1>
             <p class="subtitle">多元执业资质 · 专业服务平台</p>
-            <p class="tagline">Multi-Qualified Professional · Integrated Services Platform</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📱</span>
-                    <span>香港 HK: +852 5535 7390</span>
-                </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <span>内地 Mainland: 135-8034-6465</span>
-                </div>
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span>adam@wisdomshe.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>📍</span>
-                    <span>香港 Hong Kong</span>
-                </div>
-            </div>
-            <div style="margin-top: 20px; color: #666;">
+            <p class="subtitle">Multi-Qualified Professional · Integrated Services Platform</p>
+            <div class="contact-bar">
+                <p>📞 香港 HK: 852-55357390</p>
+                <p>📞 内地 Mainland: 13580346465</p>
                 <p>🎓 中山大学药学学士 · 药学工程双学位</p>
-                <p style="margin-top: 10px;">💼 总药师 | 专利代理师 | 顾问律师 | 医药 IP 专家</p>
+                <p>💼 总药师 | 专利代理师 | 顾问律师 | 医药 IP 专家</p>
             </div>
         </div>
         
-        <!-- Core Philosophy -->
-        <div class="philosophy">
-            <h2>⭐ 核心服务理念 Core Philosophy</h2>
-            <div class="philosophy-blockquote">
-                💡 简单说：专业多一点，风险少一点<br>
-                Simply Put: More Professionalism, Less Risk
+        <!-- Philosophy -->
+        <div class="section">
+            <h2 class="section-title">⭐ 核心服务理念 Core Philosophy</h2>
+            <div class="philosophy-box">
+                <div class="philosophy-item"><strong>💡 简单说：专业多一点，风险少一点</strong><br>Simply Put: More Professionalism, Less Risk</div>
+                <div class="philosophy-item"><strong>🤝 实在说：收费透明 · 服务到底 · 拒绝套路</strong><br>Honestly Put: Transparent Fees · Full Service · No Hidden Agendas</div>
+                <div class="philosophy-item"><strong>🏆 自信说：医药·IP·资本 —— 全领域专家团队为您服务</strong><br>Confidently Put: Pharma · IP · Capital — Expert Team at Your Service</div>
             </div>
-            <p style="margin-top: 15px; line-height: 1.8;">
-                我持有医药、知识产权、法律等多领域专业资质，<br>
-                不是为炫耀证书，而是为了给您提供<strong>一站式专业解决方案</strong>。
-            </p>
         </div>
         
         <!-- Three Main Lines -->
-        <div class="qualifications">
+        <div class="section">
             <h2 class="section-title">🎯 三主线服务 Three Service Lines</h2>
-            <div class="qualification-grid">
-                <div class="qual-card">
-                    <h3>💊 No.1 医药+IP</h3>
-                    <p><strong>核心业务</strong></p>
-                    <p>药师 + 专代 + 律师</p>
-                    <p>医药 IP 战略规划</p>
-                    <p>专利申请与管理</p>
-                    <p>FTO 分析 + IP 尽调</p>
-                </div>
-                <div class="qual-card">
-                    <h3>💰 No.2 资本市场</h3>
-                    <p><strong>辅助业务</strong></p>
-                    <p>证券 + 期货 + 银行</p>
-                    <p>Family Office 投资顾问</p>
-                    <p>医药行业分析师</p>
-                    <p>项目投融资对接</p>
-                </div>
-                <div class="qual-card">
-                    <h3>🏢 No.3 不动产</h3>
-                    <p><strong>顾问合作</strong></p>
-                    <p>房地产 + 监理 + 社工</p>
-                    <p>项目尽调支持</p>
-                    <p>合规审查</p>
-                    <p>顾问合作模式</p>
-                </div>
+            
+            <h3 class="section-title-cn">No.1 医药+IP 主线（核心业务）</h3>
+            <div class="service-card">
+                <p><strong>证书组合：</strong>药师 + 专代 + 律师 + 知识产权师</p>
+                <p><strong>服务内容：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>医药 IP 战略规划（专利布局 + 技术保护）</li>
+                    <li>专利申请与管理（中国/香港/PCT 国际）</li>
+                    <li>FTO 分析（自由实施分析 + 风险规避）</li>
+                    <li>IP 尽职调查（帮投资人评估项目价值）</li>
+                    <li>技术转移与授权（大学/研究机构商业化）</li>
+                    <li>医药合规咨询（药品注册+GMP/GSP）</li>
+                </ul>
+                <p class="price">收费标准：面议（根据项目复杂度）</p>
+            </div>
+            
+            <h3 class="section-title-cn">No.2 资本市场主线（辅助业务）</h3>
+            <div class="service-card">
+                <p><strong>证书组合：</strong>证券分析师 + 证券投资顾问 + 期货投资分析 + 银行业中级 + 会计师 + 审计师 + 统计师</p>
+                <p><strong>服务内容：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Family Office 投资顾问（医药项目评估）</li>
+                    <li>医药行业分析师（IP 角度评估技术价值）</li>
+                    <li>项目投融资对接（帮项目找钱，帮钱找项目）</li>
+                    <li>跨境财税筹划（香港/大陆/国际架构）</li>
+                </ul>
+                <p class="price">收费标准：项目制 / 年费制</p>
+            </div>
+            
+            <h3 class="section-title-cn">No.3 不动产主线（顾问合作）</h3>
+            <div class="service-card">
+                <p><strong>证书组合：</strong>房地产经纪人 + 不动产登记代理人 + 监理工程师 + 社会工作师</p>
+                <p><strong>服务内容：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>项目尽调支持（医药/科技物业专业技术尽调）</li>
+                    <li>合规审查（交易风险评估）</li>
+                    <li>顾问合作模式（与地产基金/咨询公司合作）</li>
+                </ul>
+                <p class="price">收费标准：顾问费 / 项目分成</p>
             </div>
         </div>
         
-        <!-- Services -->
-        <div class="services">
-            <h2 class="section-title">🚀 专业服务 Services</h2>
-            <ul class="service-list">
-                <li class="service-item">
-                    <h4>📌 医药 IP 战略规划</h4>
-                    <p>帮药企/生物科技公司布局专利组合，保护核心技术，提升估值</p>
-                </li>
-                <li class="service-item">
-                    <h4>📌 专利申请与管理</h4>
-                    <p>中国/香港/国际 PCT 专利申请，审查意见答复，专利维护</p>
-                </li>
-                <li class="service-item">
-                    <h4>📌 FTO 分析 (自由实施)</h4>
-                    <p>产品上市前专利风险评估，规避设计，许可谈判</p>
-                </li>
-                <li class="service-item">
-                    <h4>📌 IP 尽职调查</h4>
-                    <p>帮投资人评估医药项目的 IP 价值和技术风险</p>
-                </li>
-                <li class="service-item">
-                    <h4>📌 技术转移与授权</h4>
-                    <p>大学/研究机构技术商业化，授权谈判，合同起草</p>
-                </li>
-                <li class="service-item">
-                    <h4>📌 医药合规咨询</h4>
-                    <p>药品注册、GMP/GSP 合规、药物警戒</p>
-                </li>
-            </ul>
-        </div>
-        
         <!-- Why Choose Me -->
-        <div class="why-me">
+        <div class="section">
             <h2 class="section-title">🌟 为什么选择我 Why Me</h2>
-            <ul class="service-list">
-                <li class="service-item" style="border-left-color: #667eea;">
-                    <h4>稀缺的三证组合</h4>
-                    <p>药师 + 专利代理师 + 律师，全国可能不到 100 人</p>
-                </li>
-                <li class="service-item" style="border-left-color: #667eea;">
-                    <h4>懂技术 + 懂法律 + 懂商业</h4>
-                    <p>能和技术人员对话，能处理法律事务，能理解商业需求</p>
-                </li>
-                <li class="service-item" style="border-left-color: #667eea;">
-                    <h4>实战经验</h4>
-                    <p>处理过国际 PCT 专利申请、企业 IP 体系构建、技术授权谈判</p>
-                </li>
-                <li class="service-item" style="border-left-color: #667eea;">
-                    <h4>跨界整合能力</h4>
-                    <p>13 项专业证书，学习能力强，能快速理解新领域</p>
-                </li>
-            </ul>
+            <div class="service-card">
+                <p><strong>💎 稀缺的三证组合</strong> — 药师 + 专利代理师 + 律师，全国可能不到 100 人</p>
+                <p><strong>🔧 懂技术 + 懂法律 + 懂商业</strong> — 能和技术人员对话，能处理法律事务，能理解商业需求</p>
+                <p><strong>📚 实战经验</strong> — 处理过国际 PCT 专利申请、企业 IP 体系构建、技术授权谈判</p>
+                <p><strong>🎓 跨界整合能力</strong> — 13 项专业证书，学习能力强，能快速理解新领域</p>
+            </div>
         </div>
         
-        <!-- CTA -->
-        <div class="cta">
-            <h2 style="color: #667eea; margin-bottom: 20px;">💬 欢迎交流合作</h2>
-            <p style="color: #666; margin-bottom: 20px;">
-                无论您是药企、生物科技公司、投资人，还是法律同行，<br>
-                都欢迎联系我交流医药 IP 相关问题。
-            </p>
-            <a href="tel:+85255357390" class="cta-button">📞 致电咨询</a>
-            <a href="mailto:adam@wisdomshe.com" class="cta-button secondary">📧 发送邮件</a>
+        <!-- Contact -->
+        <div class="contact-section">
+            <h2 class="section-title" style="border: none;">📞 联系我们 Contact Us</h2>
+            <p style="font-size: 18px; margin-bottom: 20px;"><strong>雷荣辉 Adam Lei</strong></p>
+            <p style="font-size: 16px; margin: 10px 0;">📱 香港 HK: 852-55357390</p>
+            <p style="font-size: 16px; margin: 10px 0;">📱 内地 Mainland: 13580346465</p>
+            <p style="font-size: 16px; margin: 10px 0;">📧 邮箱 Email: adam@wisdomshe.com</p>
+            <p style="font-size: 16px; margin: 10px 0;">📍 服务区域：香港天水围 · 粤港澳大湾区 · 全球跨境业务</p>
+            <p style="font-size: 16px; margin: 10px 0;">🕐 办公时间：周一至周五 9:00-18:00 | 周六 10:00-16:00</p>
+            <div style="margin-top: 25px;">
+                <a href="tel:85255357390" class="contact-btn">📞 致电香港 HK</a>
+                <a href="tel:13580346465" class="contact-btn">📞 致电内地 Mainland</a>
+            </div>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 Adam Lei 雷荣辉 · All Rights Reserved</p>
-            <p style="margin-top: 10px;">最后更新：2026-03-31</p>
+            <p>© 2026 雷荣辉 Adam Lei 专业服务平台</p>
+            <p>中国宜元物产股份有限公司 | SHE DATA HK LIMITED</p>
+            <p style="margin-top: 10px; opacity: 0.8;">专业多一点，风险少一点</p>
+            <p style="opacity: 0.8;">More Professionalism, Less Risk</p>
         </div>
     </div>
 </body>
