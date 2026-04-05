@@ -3,200 +3,774 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雷荣辉 Adam Lei - 专业服务平台</title>
+    <title>雷荣辉 Adam Lei - 房地产与知识产权专业服务平台</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f5f5f5;
+            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1000px;
         }
+
+        /* 3D 背景动画 */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float3D 20s infinite ease-in-out;
+        }
+
+        .bg-shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .bg-shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        .bg-shape:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            top: 30%;
+            right: 30%;
+            animation-delay: -15s;
+        }
+
+        @keyframes float3D {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+            }
+            25% {
+                transform: translate3d(50px, 30px, 50px) rotateX(10deg) rotateY(10deg);
+            }
+            50% {
+                transform: translate3d(-30px, -50px, 30px) rotateX(-10deg) rotateY(5deg);
+            }
+            75% {
+                transform: translate3d(40px, -20px, -40px) rotateX(5deg) rotateY(-10deg);
+            }
+        }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #fff;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
         }
-        
+
+        /* 3D 卡片效果 */
+        .card-3d {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 0 1px rgba(255,255,255,0.1);
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: cardEntrance 0.8s ease-out both;
+        }
+
+        .card-3d:hover {
+            transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
+            box-shadow: 
+                0 30px 80px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(255,255,255,0.2);
+        }
+
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(50px) rotateX(-10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
         /* Header */
         .header {
             background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 50px 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
+            transform-style: preserve-3d;
+            animation: headerEntrance 1s ease-out both;
         }
+
+        @keyframes headerEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) rotateX(-10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
         .header h1 {
-            font-size: 28px;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255,255,255,0.8));
+            }
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
             margin-bottom: 10px;
         }
-        .header .subtitle {
-            font-size: 16px;
-            opacity: 0.95;
-            margin-bottom: 20px;
-        }
+
         .contact-bar {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
+            background: transparent;
+            padding: 0;
+            margin-top: 25px;
         }
-        .contact-bar p {
-            margin: 5px 0;
-            font-size: 15px;
+
+        /* 3D 联系信息网格 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            perspective: 1000px;
         }
-        
+
+        .contact-item {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 100%);
+            border-radius: 15px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            animation: flipIn 0.6s ease-out both;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+        .contact-item:nth-child(4) { animation-delay: 0.4s; }
+        .contact-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: rotateY(-90deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+
+        .contact-item:hover {
+            transform: rotateY(10deg) rotateX(10deg) scale(1.05) translateZ(15px);
+            box-shadow: 0 20px 50px rgba(0, 102, 204, 0.5);
+        }
+
+        .contact-item .icon {
+            font-size: 2.2em;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+
+        .contact-item .label {
+            color: #888;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item .value {
+            color: #0066cc;
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        /* 3D 资质标签 */
+        .qualifications {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+            perspective: 1000px;
+        }
+
+        .qual-tag {
+            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 0.95em;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            animation: bounceIn 0.8s ease-out both;
+            box-shadow: 0 5px 20px rgba(0, 102, 204, 0.4);
+        }
+
+        .qual-tag:nth-child(1) { animation-delay: 0.1s; }
+        .qual-tag:nth-child(2) { animation-delay: 0.2s; }
+        .qual-tag:nth-child(3) { animation-delay: 0.3s; }
+        .qual-tag:nth-child(4) { animation-delay: 0.4s; }
+        .qual-tag:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(-50px);
+            }
+            50% {
+                transform: scale(1.05) translateY(0);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .qual-tag:hover {
+            transform: scale(1.1) rotateZ(-5deg) translateZ(20px);
+            box-shadow: 0 10px 40px rgba(0, 102, 204, 0.6);
+        }
+
         /* Section */
         .section {
-            padding: 30px 20px;
-            border-bottom: 1px solid #eee;
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            animation: slideUp 0.8s ease-out 0.3s both;
         }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:hover {
+            transform: rotateX(2deg) scale(1.01);
+        }
+
         .section-title {
-            font-size: 22px;
-            color: #0066cc;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #0066cc;
+            font-size: 1.9em;
+            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
         }
+
         .section-title-cn {
-            font-size: 20px;
+            font-size: 1.4em;
             color: #0066cc;
-            margin: 25px 0 15px;
-            font-weight: bold;
+            margin: 30px 0 20px;
+            font-weight: 600;
+            text-align: center;
         }
-        
+
         /* Philosophy */
         .philosophy-box {
-            background: #f0f7ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #0066cc;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #0066cc;
+            transform-style: preserve-3d;
+            transition: all 0.4s ease;
+            animation: pulse 3s ease-in-out infinite;
         }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(0, 102, 204, 0.2);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 10px 40px rgba(0, 102, 204, 0.3);
+            }
+        }
+
+        .philosophy-box:hover {
+            transform: scale(1.03) rotateY(2deg);
+        }
+
         .philosophy-item {
-            margin: 10px 0;
-            padding: 10px;
+            margin: 15px 0;
+            padding: 15px;
             background: white;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
         }
-        
+
+        .philosophy-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 102, 204, 0.15);
+        }
+
         /* Service Cards */
         .service-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #0066cc;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            text-align: left;
+            animation: slideInLeft 0.6s ease-out both;
         }
+
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .service-card:hover {
+            transform: translateX(15px) scale(1.02) rotateY(-3deg);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.25);
+        }
+
         .service-card h3 {
             color: #0066cc;
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 1.2em;
+            margin-bottom: 12px;
         }
+
+        .service-card p {
+            margin: 10px 0;
+            color: #555;
+            line-height: 1.8;
+        }
+
         .service-card .price {
             color: #00aa00;
             font-weight: bold;
-            font-size: 16px;
-            margin: 10px 0;
+            font-size: 1.1em;
+            margin: 15px 0;
         }
-        
+
         /* Table */
         .table-container {
             overflow-x: auto;
-            margin: 15px 0;
+            margin: 20px 0;
+            perspective: 1000px;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 14px;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
         }
+
+        table:hover {
+            transform: scale(1.01);
+        }
+
         th, td {
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 15px 12px;
             text-align: left;
         }
+
         th {
-            background: #0066cc;
+            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
             color: white;
             font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
         tr:nth-child(even) {
             background: #f9f9f9;
         }
-        
+
+        tr {
+            transition: all 0.3s ease;
+        }
+
+        tr:hover {
+            background: #f0f7ff;
+            transform: scale(1.01);
+        }
+
         /* Package */
         .package-card {
             background: linear-gradient(135deg, #0066cc, #0099ff);
             color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: zoomIn 0.8s ease-out both;
         }
+
+        .package-card:nth-child(1) { animation-delay: 0.1s; }
+        .package-card:nth-child(2) { animation-delay: 0.2s; }
+        .package-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px) scale(1.03) rotateX(5deg);
+            box-shadow: 0 20px 50px rgba(0, 102, 204, 0.4);
+        }
+
         .package-card h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 1.3em;
+            margin-bottom: 15px;
         }
+
         .package-card .price {
-            font-size: 24px;
+            font-size: 1.8em;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 15px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
+
         .package-card.premium {
             background: linear-gradient(135deg, #ff6600, #ff9933);
         }
+
+        .package-card.premium:hover {
+            box-shadow: 0 20px 50px rgba(255, 102, 0, 0.4);
+        }
+
         .package-card.efficient {
             background: linear-gradient(135deg, #00aa66, #00cc88);
         }
-        
+
+        .package-card.efficient:hover {
+            box-shadow: 0 20px 50px rgba(0, 170, 102, 0.4);
+        }
+
         /* Contact */
         .contact-section {
-            background: #f0f7ff;
-            padding: 30px 20px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
             text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            animation: fadeInUp 0.8s ease-out both;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .contact-btn {
             display: inline-block;
-            background: #0066cc;
+            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
             color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 18px 45px;
+            border-radius: 35px;
             text-decoration: none;
-            margin: 10px;
+            margin: 15px;
             font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
+            transform-style: preserve-3d;
         }
+
         .contact-btn:hover {
-            background: #0055aa;
+            transform: translateY(-5px) scale(1.05) rotateX(-10deg);
+            box-shadow: 0 20px 50px rgba(0, 102, 204, 0.6);
         }
-        
+
+        /* QR Code */
+        .qr-section {
+            margin-top: 35px;
+            padding-top: 35px;
+            border-top: 3px dashed #ddd;
+        }
+
+        .qr-grid {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .qr-item {
+            text-align: center;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .qr-item:nth-child(1) { animation-delay: 0.2s; }
+        .qr-item:nth-child(2) { animation-delay: 0.4s; }
+        .qr-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .qr-item:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .qr-item img {
+            width: 180px;
+            border-radius: 15px;
+            border: 3px solid #07c160;
+            box-shadow: 0 10px 30px rgba(7, 193, 96, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .qr-item:hover img {
+            box-shadow: 0 20px 50px rgba(7, 193, 96, 0.5);
+            transform: rotateY(10deg);
+        }
+
+        .qr-item p {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
         /* Footer */
         .footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 13px;
+            padding: 25px;
+            font-size: 0.9em;
+            border-radius: 15px;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out both;
         }
-        
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Responsive */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
             .header h1 {
-                font-size: 24px;
+                font-size: 2em;
             }
+
+            .header .subtitle {
+                font-size: 1.1em;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .qualifications {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .qual-tag {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
             .section-title {
-                font-size: 20px;
+                font-size: 1.5em;
             }
-            th, td {
-                padding: 8px;
+
+            .service-card {
+                padding: 20px;
+            }
+
+            .package-card {
+                padding: 25px;
+            }
+
+            .contact-btn {
+                padding: 15px 35px;
+                font-size: 1em;
+                display: block;
+                margin: 10px auto;
+                max-width: 280px;
+            }
+
+            .qr-grid {
+                gap: 20px;
+            }
+
+            .qr-item img {
+                width: 150px;
+            }
+
+            .table-container {
                 font-size: 13px;
             }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.7em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                padding: 15px 12px;
+            }
+
+            .contact-item .icon {
+                font-size: 1.8em;
+            }
+
+            .qual-tag {
+                padding: 10px 20px;
+                font-size: 0.85em;
+            }
+
+            .section-title {
+                font-size: 1.3em;
+            }
+
+            .philosophy-box {
+                padding: 20px;
+            }
+        }
+
+        /* 鼠标移动 3D 效果 */
+        .tilt-effect {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
         }
     </style>
 </head>
 <body>
+    <!-- 3D 背景动画 -->
+    <div class="bg-animation">
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -205,11 +779,36 @@
             <p class="subtitle">Multi-Qualified Professional · Integrated Services Platform</p>
             
             <div class="contact-bar">
-                <p>📞 香港 HK: 852-55357390</p>
-                <p>📞 内地 Mainland: 13580346465</p>
-                <p>🎓 中山大学药学士</p>
-                <p style="margin-top: 5px;">🎓 药学工程学双学位</p>
-                <p>💼 总药师 | 总监理工程师 | 总审计师 | 顾问律师 | 主任社工师</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="icon">📞</span>
+                        <span class="label">香港 HK</span>
+                        <span class="value">852-55357390</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📞</span>
+                        <span class="label">内地 Mainland</span>
+                        <span class="value">13580346465</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">🎓</span>
+                        <span class="label">学历 Education</span>
+                        <span class="value">中山大学药学士</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">🎓</span>
+                        <span class="label">学位 Degree</span>
+                        <span class="value">药学工程学双学位</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qualifications">
+                <span class="qual-tag">💼 总药师</span>
+                <span class="qual-tag">🏗️ 总监理工程师</span>
+                <span class="qual-tag">📊 总审计师</span>
+                <span class="qual-tag">⚖️ 顾问律师</span>
+                <span class="qual-tag">🤝 主任社工师</span>
             </div>
         </div>
         
@@ -248,7 +847,7 @@
             <h3 class="section-title-cn">服务项目与收费</h3>
             <div class="table-container">
                 <table>
-                    <tr>
+                    <tbody><tr>
                         <th>服务类型</th>
                         <th>服务内容</th>
                         <th>收费标准</th>
@@ -268,7 +867,7 @@
                         <td>商铺/写字楼<br>工业物业<br>投资策划</td>
                         <td class="price">面议</td>
                     </tr>
-                </table>
+                </tbody></table>
             </div>
             
             <h3 class="section-title-cn">服务套餐</h3>
@@ -305,7 +904,7 @@
             <h3 class="section-title-cn">知识产权服务</h3>
             <div class="table-container">
                 <table>
-                    <tr>
+                    <tbody><tr>
                         <th>服务类型</th>
                         <th>服务内容</th>
                     </tr>
@@ -321,7 +920,7 @@
                         <td><strong>知识产权布局</strong></td>
                         <td>专利地图分析 · FTO 分析<br>竞争对手监控 · 许可转让</td>
                     </tr>
-                </table>
+                </tbody></table>
             </div>
             
             <h3 class="section-title-cn">跨境财税筹划</h3>
@@ -334,7 +933,7 @@
             <h3 class="section-title-cn">服务套餐</h3>
             <div class="table-container">
                 <table>
-                    <tr>
+                    <tbody><tr>
                         <th>套餐</th>
                         <th>服务内容</th>
                         <th>费用</th>
@@ -354,7 +953,7 @@
                         <td>全球知识产权布局规划<br>多国专利申请（5+ 国家）<br>跨境税务架构设计<br>常年财税顾问（1 年）<br>7×24 小时优先支持</td>
                         <td class="price">定制报价</td>
                     </tr>
-                </table>
+                </tbody></table>
             </div>
             
             <h3 class="section-title-cn">常见问题 FAQ</h3>
@@ -375,26 +974,26 @@
             <h2 class="section-title" style="border: none;">📞 联系我们 Contact</h2>
             <p style="font-size: 18px; margin-bottom: 20px;"><strong>雷荣辉 Adam Lei</strong></p>
             <p style="font-size: 16px; margin: 10px 0; color: #07c160; font-weight: 600;">
-                📱 微信 & WhatsApp：85255357390
+                📱 微信 &amp; WhatsApp：85255357390
             </p>
             <p style="font-size: 16px; margin: 10px 0;">📍 服务区域：香港天水围 · 粤港澳大湾区</p>
             <p style="font-size: 16px; margin: 10px 0;">🕐 办公时间：周一至周五 9:00-18:00</p>
-            <a href="https://wa.me/85255357390?text=我想咨询地产" class="contact-btn">💬 WhatsApp / 微信</a>
+            <a href="https://wa.me/85255357390?text=我想咨询地产" class="contact-btn">💬 WhatsApp / 微信预约</a>
             
-            <div style="margin-top: 30px; padding-top: 30px; border-top: 2px dashed #ddd;">
-                <h3 style="font-size: 16px; color: #666; margin-bottom: 20px; text-align: center;">📱 扫码联系 / 付款</h3>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <div style="text-align: center;">
-                        <img src="wechat-qr.png" alt="微信二维码" style="width: 180px; border-radius: 10px; border: 2px solid #07c160;">
-                        <p style="margin-top: 10px; font-size: 14px; color: #666;">微信添加</p>
+            <div class="qr-section">
+                <h3 style="font-size: 16px; color: #666; margin-bottom: 10px; text-align: center;">📱 扫码联系 / 付款</h3>
+                <div class="qr-grid">
+                    <div class="qr-item">
+                        <img src="wechat-qr.png" alt="微信二维码" style="width: 180px;">
+                        <p>微信添加</p>
                     </div>
-                    <div style="text-align: center;">
-                        <img src="wechat-pay-hkd.png" alt="港币收款码" style="width: 180px; border-radius: 10px; border: 2px solid #07c160;">
-                        <p style="margin-top: 10px; font-size: 14px; color: #666;">港币 HKD</p>
+                    <div class="qr-item">
+                        <img src="wechat-pay-hkd.png" alt="港币收款码" style="width: 180px;">
+                        <p>港币 HKD</p>
                     </div>
-                    <div style="text-align: center;">
-                        <img src="wechat-pay-cny.png" alt="人民币收款码" style="width: 180px; border-radius: 10px; border: 2px solid #07c160;">
-                        <p style="margin-top: 10px; font-size: 14px; color: #666;">人民币 CNY</p>
+                    <div class="qr-item">
+                        <img src="wechat-pay-cny.png" alt="人民币收款码" style="width: 180px;">
+                        <p>人民币 CNY</p>
                     </div>
                 </div>
             </div>
@@ -408,5 +1007,74 @@
             <p style="opacity: 0.8;">More Professionalism, Less Risk</p>
         </div>
     </div>
+
+    <script>
+        // 3D 倾斜效果 - 包含联系卡片
+        document.querySelectorAll('.card-3d, .service-card, .package-card, .section, .contact-item').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .contact-section, .header').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 按钮点击波纹效果
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255,255,255,0.4);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
 </body>
 </html>
